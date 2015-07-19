@@ -24,6 +24,28 @@ class House:
             f.write('{}: {}\n'.format('slots_taken', self.slots_taken))
             f.write('{}: {}\n'.format('students', self.students))
 
+    def load(self, filename = None):
+        if filename == None:
+            filename  = str(self.name) + '.sv'
+
+        lines = []
+        settings = dict()
+        
+        with open(filename,'r') as f:
+            lines = [x.strip() for x in f.readlines()]
+
+        for x in lines:
+            temp = x.split(':')
+            settings[temp[0]] = temp[1].strip()
+
+        self.max_slots = int(settings['max_slots'])
+        self.min_slots = int(settings['min_slots'])
+        self.slots_with_laptop = int(settings['slots_with_laptop'])
+        self.slots_without_laptop = int(settings['slots_without_laptop'])
+        self.name = str(settings['name'])
+        self.slots_taken = int(settings['slots_taken'])
+        # print settings['students']
+        self.students = ast.literal_eval(settings['students'])
 
 
     def add_student_with_laptop(self, name):
