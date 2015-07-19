@@ -1,6 +1,9 @@
 # sublime stuff
 *.sublime*
 
+# sample input
+sample.in
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
