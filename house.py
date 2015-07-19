@@ -1,3 +1,5 @@
+import ast
+
 class House:
 
     def __init__(self, name = '', min_slots = 0, max_slots = 0, slots_without_laptop = -1, slots_with_laptop = 0):
@@ -8,6 +10,20 @@ class House:
         self.name = str(name)
         self.slots_taken = 0
         self.students = []
+
+    def save(self, filename = None):
+        if filename == None:
+            filename = str(self.name + '.sv')
+
+        with open(filename, 'w') as f:
+            f.write('{}: {}\n'.format('max_slots', self.max_slots))
+            f.write('{}: {}\n'.format('min_slots', self.min_slots))
+            f.write('{}: {}\n'.format('slots_without_laptop', self.slots_without_laptop))
+            f.write('{}: {}\n'.format('slots_with_laptop', self.slots_with_laptop))
+            f.write('{}: {}\n'.format('name', self.name))
+            f.write('{}: {}\n'.format('slots_taken', self.slots_taken))
+            f.write('{}: {}\n'.format('students', self.students))
+
 
 
     def add_student_with_laptop(self, name):
