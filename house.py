@@ -2,7 +2,7 @@ import ast
 import time
 import sys
 from pygame import mixer
-
+import sorting_hat
 class House:
 
     def __init__(self, name = '', min_slots = 0, max_slots = 0, slots_without_laptop = -1, slots_with_laptop = 0):
@@ -82,10 +82,7 @@ class House:
 
     def delay(self, name, t1 = 0.05, t2 = 1.0):
         name = name.upper()
-        for x in name:
-            sys.stdout.write(x)
-            sys.stdout.flush()
-            time.sleep(t1)
+        print name + ' you are',
         for x in '...\n':
             time.sleep(t2)
             sys.stdout.write(x)
@@ -95,7 +92,12 @@ class House:
     def play_sound(self):
         mixer.init()
         mixer.music.load(self.name + '.mp3')
-        mixer.music.play()       
+        mixer.music.play()
+        time.sleep(7)
+        self.display_art()
+
+    def display_art(self):
+        sorting_hat.SortingHat().display_art(self.name + '_ascii.txt')
 
 
             
