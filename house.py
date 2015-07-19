@@ -29,5 +29,11 @@ class House:
         for x in self.students:
             print x
 
+    def print_students_to_file(self):
+        with open(self.name + '.txt', 'w') as f:
+            f.write(self.name + '\n\n')
+            for x in self.students:
+                f.write(str(x) + '\n')
+
     def __repr__(self):
         return '{}\tLaptops: {}\tPCs: {}\tMax Slots: {}'.format(self.name, str(self.slots_with_laptop),str(self.slots_without_laptop),str(self.max_slots))
