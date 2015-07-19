@@ -61,6 +61,11 @@ class SortingHat:
                 break
         self.print_students_to_file()
         self.print_students()
+        self.save()
+
+    def save(self):
+        for x in self.houses:
+            x.save()
 
 
     def print_students_to_file(self):
