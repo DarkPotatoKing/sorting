@@ -5,7 +5,7 @@ import random
 
 class SortingHat:    
 
-    def __init__(self):
+    def start(self):
         self.load_config()
         self.assign_house_slots()
         self.sort_students()
@@ -59,10 +59,19 @@ class SortingHat:
 
             if raw_input('Add another student? (y/n): ') == 'n':
                 break
+        self.print_students_to_file()
+        self.print_students()
+
+
+    def print_students_to_file(self):
         for x in self.houses:
             print ''
             x.print_students()
             x.print_students_to_file()
+
+    def print_students(self):
+        for x in self.houses:
+             x.print_students() 
 
     def display_art(self):
         lines = []
