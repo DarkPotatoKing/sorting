@@ -1,4 +1,7 @@
 import ast
+import time
+import sys
+
 
 class House:
 
@@ -49,17 +52,19 @@ class House:
 
 
     def add_student_with_laptop(self, name):
+        self.delay(name)
         self.slots_taken += 1
         self.slots_with_laptop -= 1
         self.students.append(str(name))
-        print '{} added to {}.'.format(name, self.name)
+        # print '{} added to {}.'.format(name, self.name)
         # print self.students
 
     def add_student_without_laptop(self, name):
+        self.delay(name)
         self.slots_taken += 1
         self.slots_without_laptop -= 1
         self.students.append(str(name))
-        print '{} added to {}.'.format(name, self.name)
+        # print '{} added to {}.'.format(name, self.name)
         # print self.students
 
     def print_students(self):
@@ -74,6 +79,18 @@ class House:
             f.write(self.name + '\n\n')
             for x in self.students:
                 f.write(str(x) + '\n')
+
+    def delay(self, name, t1 = 0.05, t2 = 1.0):
+        name = name.upper()
+        for x in name:
+            sys.stdout.write(x)
+            sys.stdout.flush()
+            time.sleep(t1)
+        for x in '...\n':
+            time.sleep(t2)
+            sys.stdout.write(x)
+            sys.stdout.flush()
+            
 
     def __repr__(self):
         return '{}\tLaptops: {}\tPCs: {}\tMax Slots: {}'.format(self.name, str(self.slots_with_laptop),str(self.slots_without_laptop),str(self.max_slots))
