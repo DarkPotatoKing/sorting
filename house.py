@@ -1,7 +1,7 @@
 import ast
 import time
 import sys
-
+from pygame import mixer
 
 class House:
 
@@ -90,6 +90,14 @@ class House:
             time.sleep(t2)
             sys.stdout.write(x)
             sys.stdout.flush()
+        self.play_sound()
+
+    def play_sound(self):
+        mixer.init()
+        mixer.music.load(self.name + '.mp3')
+        mixer.music.play()       
+
+
             
 
     def __repr__(self):
