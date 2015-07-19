@@ -4,6 +4,9 @@
 # sample input
 sample.in
 
+# config file
+config.cfg
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
