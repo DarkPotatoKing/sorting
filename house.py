@@ -25,7 +25,9 @@ class House:
         # print self.students
 
     def print_students(self):
+        print ''
         print self.name
+        print ''
         for x in self.students:
             print x
 
