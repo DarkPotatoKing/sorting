@@ -32,14 +32,14 @@ class SortingHat:
         max_students_per_house = int(math.ceil(self.num_students / 4))
 
         # purely laptop class
-        self.slytherin = House(max_students_per_house, 0, -1)
+        self.slytherin = House('Slytherin', max_students_per_house, 0, -1)
 
         # 10 slots without laptop, the rest with laptops
-        self.ravenclaw = House(max_students_per_house, 10, -1)
+        self.ravenclaw = House('Ravenclaw', max_students_per_house, 10, -1)
 
         # normal labs
-        self.hufflepuff = House(max_students_per_house)
-        self.gryffindor = House(max_students_per_house)
+        self.hufflepuff = House('Hufflepuff', max_students_per_house)
+        self.gryffindor = House('Gryffindor', max_students_per_house)
 
         self.houses = [self.slytherin, self.ravenclaw, self.hufflepuff, self.gryffindor]
         
