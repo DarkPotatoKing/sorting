@@ -62,6 +62,7 @@ class SortingHat:
         for x in self.houses:
             print ''
             x.print_students()
+            x.print_students_to_file()
 
     def display_art(self):
         lines = []
