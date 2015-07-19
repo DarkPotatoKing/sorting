@@ -26,16 +26,17 @@ class SortingHat:
 
     def assign_house_slots(self):
         max_students_per_house = int(math.ceil(self.num_students / 4))
+        min_students_per_house = int(self.num_students / 4)
 
         # purely laptop class
-        self.slytherin = House('Slytherin', max_students_per_house, 0, -1)
+        self.slytherin = House('Slytherin', min_students_per_house, max_students_per_house, 0, -1)
 
         # 10 slots without laptop, the rest with laptops
-        self.ravenclaw = House('Ravenclaw', max_students_per_house, 10, -1)
+        self.ravenclaw = House('Ravenclaw', min_students_per_house, max_students_per_house, 10, -1)
 
         # normal labs
-        self.hufflepuff = House('Hufflepuff', max_students_per_house)
-        self.gryffindor = House('Gryffindor', max_students_per_house)
+        self.hufflepuff = House('Hufflepuff', min_students_per_house, max_students_per_house)
+        self.gryffindor = House('Gryffindor', min_students_per_house, max_students_per_house)
 
         self.houses = [self.slytherin, self.ravenclaw, self.hufflepuff, self.gryffindor]
         
@@ -71,18 +72,36 @@ class SortingHat:
 
     def assign_student_with_laptop(self, name):
         while True:
-            house = random.choice([self.slytherin, self.ravenclaw])
+            choices = [self.slytherin, self.ravenclaw]
+            house = random.choice(choices)
             # print house
 
-            if house.slots_with_laptop != 0 and house.slots_taken < house.max_slots:
+            if house.slots_with_laptop != 0 and house.slots_taken < house.min_slots:
                 house.add_student_with_laptop(name)
                 return
+            elif house.min_slots <= house.slots_taken < house.max_slots:
+                unfilled_houses = 0
+                for x in choices:
+                    if x.slots_taken < x.min_slots:
+                        unfilled_houses += 1
+                if unfilled_houses == 0:
+                    house.add_student_with_laptop(name)
+                    return
 
     def assign_student_without_laptop(self, name):
         while True:
-            house = random.choice([self.ravenclaw, self.gryffindor, self.hufflepuff])
+            choices = [self.ravenclaw, self.gryffindor, self.hufflepuff]
+            house = random.choice(choices)
             # print house
 
-            if house.slots_without_laptop != 0 and house.slots_taken < house.max_slots:
+            if house.slots_without_laptop != 0 and house.slots_taken < house.min_slots:
                 house.add_student_without_laptop(name)
                 return
+            elif house.min_slots <= house.slots_taken < house.max_slots:
+                unfilled_houses = 0
+                for x in choices:
+                    if x.slots_taken < x.min_slots:
+                        unfilled_houses += 1
+                if unfilled_houses == 0:
+                    house.add_student_without_laptop(name)
+                    return
