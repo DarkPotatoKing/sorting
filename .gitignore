@@ -1,6 +1,9 @@
 # sublime stuff
 *.sublime*
 
+# output text file
+*.txt
+
 # sample input
 sample.in
 
