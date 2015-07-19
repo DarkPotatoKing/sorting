@@ -67,6 +67,21 @@ class SortingHat:
         for x in self.houses:
             x.save()
 
+    def load(self):
+        self.slytherin = House()
+        # print self.slytherin
+        self.gryffindor = House()
+        self.ravenclaw = House()
+        self.hufflepuff = House()
+
+        self.slytherin.load('Slytherin.sv')
+        # print self.Slytherin
+        self.gryffindor.load('Gryffindor.sv')
+        self.ravenclaw.load('Ravenclaw.sv')
+        self.hufflepuff.load('Hufflepuff.sv')
+
+        self.houses = [self.slytherin, self.gryffindor, self.hufflepuff, self.ravenclaw]
+
 
     def print_students_to_file(self):
         for x in self.houses:
