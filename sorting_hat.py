@@ -2,6 +2,7 @@ from __future__ import division
 from house import House
 import math
 import random
+import os
 
 class SortingHat:    
 
@@ -45,9 +46,11 @@ class SortingHat:
 
     def sort_students(self):
         while True:
-            self.display_art()
+            os.system('clear')
+            self.display_art('bootcamp_ascii.txt')
+            self.display_art('sorting_hat_ascii.txt')
 
-            name = raw_input('Enter your name:\t')
+            name = raw_input('Enter your name:\t\t')
             has_laptop = raw_input('Can you bring a laptop (y/n):\t').lower()
             has_laptop = has_laptop == 'y' or has_laptop == 'yes'
             # print has_laptop
@@ -93,9 +96,9 @@ class SortingHat:
         for x in self.houses:
              x.print_students() 
 
-    def display_art(self):
+    def display_art(self, filename):
         lines = []
-        with open('sorting_hat_ascii.txt', 'r') as f:
+        with open(filename, 'r') as f:
             lines = [x.strip('\n') for x in f.readlines()]
         for x in lines:
             print x
