@@ -1,7 +1,8 @@
 class House:
 
-    def __init__(self, name = '', max_slots = 0, slots_without_laptop = -1, slots_with_laptop = 0):
+    def __init__(self, name = '', min_slots = 0, max_slots = 0, slots_without_laptop = -1, slots_with_laptop = 0):
         self.max_slots = max_slots
+        self.min_slots = min_slots
         self.slots_without_laptop = slots_without_laptop
         self.slots_with_laptop = slots_with_laptop
         self.name = str(name)
