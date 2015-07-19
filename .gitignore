@@ -1,3 +1,6 @@
+# save files
+*.sv
+
 # sublime stuff
 *.sublime*
 
