@@ -66,7 +66,7 @@ class SortingHat:
     def print_students_to_file(self):
         for x in self.houses:
             print ''
-            x.print_students()
+            # x.print_students()
             x.print_students_to_file()
 
     def print_students(self):
