@@ -33,7 +33,7 @@ class House:
 
         lines = []
         settings = dict()
-        
+
         with open(filename,'r') as f:
             lines = [x.strip() for x in f.readlines()]
 
@@ -100,7 +100,7 @@ class House:
         sorting_hat.SortingHat().display_art(self.name + '_ascii.txt')
 
 
-            
+
 
     def __repr__(self):
         return '{}\tLaptops: {}\tPCs: {}\tMax Slots: {}'.format(self.name, str(self.slots_with_laptop),str(self.slots_without_laptop),str(self.max_slots))

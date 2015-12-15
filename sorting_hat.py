@@ -4,7 +4,7 @@ import math
 import random
 import os
 
-class SortingHat:    
+class SortingHat:
 
     def start(self):
         self.load_config()
@@ -40,7 +40,7 @@ class SortingHat:
         self.gryffindor = House('Gryffindor', min_students_per_house, max_students_per_house)
 
         self.houses = [self.slytherin, self.ravenclaw, self.hufflepuff, self.gryffindor]
-        
+
         # for x in self.houses:
         #     print x
 
@@ -94,7 +94,7 @@ class SortingHat:
 
     def print_students(self):
         for x in self.houses:
-             x.print_students() 
+             x.print_students()
 
     def display_art(self, filename):
         lines = []
